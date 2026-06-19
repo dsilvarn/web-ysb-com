@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dsilvarn.github.io/web-ysb-com/sitemap.xml

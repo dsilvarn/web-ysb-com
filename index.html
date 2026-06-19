@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易胜博体育 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f9fafb;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1120 0%, #1a2332 100%);
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            color: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #f9fafb;
+            clip-path: ellipse(70% 100% at 50% 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 span {
+            color: #facc15;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* 主体浅色区 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem 4rem;
+        }
+
+        .summary-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+            margin-bottom: 2.8rem;
+            border: 1px solid #eef2f6;
+        }
+
+        .summary-card h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .summary-card p {
+            font-size: 1rem;
+            color: #334155;
+            margin-bottom: 1rem;
+        }
+
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0 3rem;
+        }
+
+        .hl-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f6;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hl-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        .hl-item .emoji-badge {
+            font-size: 2rem;
+            display: inline-block;
+            margin-bottom: 0.7rem;
+        }
+
+        .hl-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .hl-item p {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .use-case {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            margin-bottom: 2.8rem;
+            border: 1px solid #eef2f6;
+        }
+
+        .use-case h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 1.2rem;
+        }
+
+        .use-case ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .use-case li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .use-case li:last-child {
+            border-bottom: none;
+        }
+
+        .use-case li::before {
+            content: "▹";
+            color: #facc15;
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            margin-bottom: 2.8rem;
+            border: 1px solid #eef2f6;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-left: 0.2rem;
+        }
+
+        .note-box {
+            background: #f1f5f9;
+            border-left: 5px solid #facc15;
+            padding: 1.4rem 1.6rem;
+            border-radius: 12px;
+            margin: 2.5rem 0 0;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        .note-box a {
+            color: #b45309;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .note-box a:hover {
+            color: #78350f;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .footer-note a {
+            color: #b45309;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        a {
+            color: #b45309;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: #78350f;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 3.5rem 1.2rem 3rem;
+            }
+            .container {
+                padding: 1.5rem 1rem 3rem;
+            }
+            .summary-card, .use-case, .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>关于<span>易胜博体育</span></h1>
+        <p class="sub">围绕真实体育场景的产品思路 —— 从信息整合到用户自主判断，逐步了解平台定位。</p>
+    </header>
+
+    <!-- 正文浅色区 -->
+    <main class="container">
+
+        <!-- 摘要卡片 -->
+        <section class="summary-card">
+            <h2>产品摘要</h2>
+            <p><a href="https://web-ysb.com">易胜博体育</a>是一个围绕体育内容与赛事资讯展开的线上平台，面向对体育数据、赛事动态有持续关注的用户。平台聚合了多类体育项目的实时信息与基础数据，帮助用户更高效地获取比赛背景与相关动态。</p>
+            <p>整体设计强调信息的可读性与模块化呈现，不嵌入主观预测或收益暗示。所有展示内容均以公开赛事数据为依据，用户可根据自身判断进行参考。</p>
+        </section>
+
+        <!-- 亮点网格 -->
+        <div class="highlight-grid">
+            <div class="hl-item">
+                <div class="emoji-badge">📊</div>
+                <h3>赛事覆盖面</h3>
+                <p>涵盖足球、篮球、网球等主流项目，同时保留部分小众联赛的基础数据入口，满足不同偏好用户的浏览需求。</p>
+            </div>
+            <div class="hl-item">
+                <div class="emoji-badge">⚙️</div>
+                <h3>模块化信息</h3>
+                <p>页面按赛事分组、实时比分、历史统计等维度组织内容，用户可快速定位自己感兴趣的区域，减少无效浏览。</p>
+            </div>
+            <div class="hl-item">
+                <div class="emoji-badge">🔄</div>
+                <h3>动态更新</h3>
+                <p>关键赛程与比分数据保持接近实时的刷新节奏，但用户仍应以官方赛事数据为最终核对依据。</p>
+            </div>
+            <div class="hl-item">
+                <div class="emoji-badge">🧭</div>
+                <h3>低干扰界面</h3>
+                <p>视觉上以信息层级优先，减少无关弹窗与复杂动效，让注意力集中在数据本身。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <section class="use-case">
+            <h2>使用建议</h2>
+            <ul>
+                <li>适合赛前快速浏览对阵信息与近期状态，辅助形成个人对比赛的初步认知。</li>
+                <li>同一赛事可能同时存在多个数据源，建议交叉核对后做出自己的判断。</li>
+                <li>移动端浏览时横向滑动可查看完整数据列，桌面端则更适合并排对比不同赛事。</li>
+                <li>平台不提供任何形式的投注或预测服务，所有内容仅作信息参考。</li>
+                <li>如果发现数据延迟或异常，可以稍后刷新页面，或通过站内反馈渠道说明。</li>
+            </ul>
+        </section>
+
+        <!-- FAQ摘要 -->
+        <section class="faq-mini">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-item">
+                <strong>数据来源是否可靠？</strong>
+                <p>平台数据汇总自公开赛事统计机构，但无法保证100%实时无误。重大比赛建议以官方直播或体育协会数据为准。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要注册才能浏览？</strong>
+                <p>大部分赛事信息与比分数据可直接查看，部分深度统计或个性化功能可能需要注册账号后使用。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容是否包含推广或广告？</strong>
+                <p>页面中可能存在有限且明确的推广标识，但不会以误导形式嵌入内容内部。用户可以自行判断是否互动。</p>
+            </div>
+        </section>
+
+        <!-- 可信但克制的访问说明 -->
+        <div class="note-box">
+            <strong>📌 坦诚说明</strong>
+            <p style="margin-top: 0.4rem;">
+                <a href="https://web-ysb.com">易胜博体育</a> 是一个信息型平台，不预设用户行为，也不承诺任何收益或结果。在使用过程中，请基于自己的经验与判断做出决定。体育赛事存在不确定性，任何数据都只能作为参考，而非行动指令。
+            </p>
+            <p style="margin-top: 0.8rem; font-style: italic; color: #475569;">
+                如果你只是想了解某场比赛的背景或近期走势，不妨从这里开始。保持理性，享受体育本身。
+            </p>
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="footer-note">
+            <a href="https://web-ysb.com">易胜博体育</a> · 产品说明页 · 2025
+        </div>
+
+    </main>
+</body>
+</html>
